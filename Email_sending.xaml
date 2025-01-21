@@ -1,0 +1,716 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Email_sending" this:Email_sending.in_SubjectEmail="Ticket contains missing fields" this:Email_sending.in_bodyEmail="there is missing field in the ticket that you have been assigned" this:Email_sending.in_ccEmail="sarthak gaur,Khushi Ranaware" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_SubjectEmail" Type="InArgument(x:String)" />
+    <x:Property Name="in_ToEmail" Type="InArgument(x:String)" />
+    <x:Property Name="in_bodyEmail" Type="InArgument(x:String)" />
+    <x:Property Name="in_ccEmail" Type="InArgument(x:String)" />
+    <x:Property Name="in_SheetName" Type="InArgument(x:String)" />
+    <x:Property Name="In_inputpath" Type="InArgument(x:String)" />
+    <x:Property Name="in_URLlink" Type="InArgument(x:String)" />
+    <x:Property Name="in_OutputPath" Type="InArgument(x:String)" />
+    <x:Property Name="in_URLSheetName" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>874.6666666666666,4894</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Email_sending_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>UiPath.Mail</x:String>
+      <x:String>UiPath.Mail.Outlook.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Services.RuntimeAnalyze</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>UiPath.Activities.System.Collections</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Email_sending" sap:VirtualizedContainerService.HintSize="776.0000000000001,1599.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Boolean" Name="bool_summarystatus" />
+      <Variable x:TypeArguments="x:Boolean" Name="Bool_issuetype_status" />
+      <Variable x:TypeArguments="x:Boolean" Name="Bool_Resolutionstatus" />
+      <Variable x:TypeArguments="x:Boolean" Name="Bool_description" />
+      <Variable x:TypeArguments="x:Boolean" Name="Bool_assignee" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_FilteredData" />
+      <Variable x:TypeArguments="ui:WorkbookApplication" Name="OutputFile" />
+      <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="Config" />
+      <Variable x:TypeArguments="x:Int32" Name="MaxAttempts" />
+      <Variable x:TypeArguments="x:TimeSpan" Name="RetryInterval" />
+      <Variable x:TypeArguments="sd:DataTable" Name="Datatable" />
+      <Variable x:TypeArguments="x:String" Name="in_bodyEmail2" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_table" />
+      <Variable x:TypeArguments="sd:DataTable" Name="ExtractDataTable" />
+      <Variable x:TypeArguments="scg:List(x:String)" Name="lstr_SheetName" />
+      <Variable x:TypeArguments="x:String" Name="str_EmailNames" />
+      <Variable x:TypeArguments="x:String" Name="SheetName" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="483.2,112.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Launching Excel application&quot;]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:LogMessage>
+    <ui:ExcelApplicationScope Password="{x:Null}" SensitivityLabel="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="483.2,623.2" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" SensitivityOperation="None" WorkbookPath="[In_inputpath]">
+      <ui:ExcelApplicationScope.Body>
+        <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="449.6,481.6" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,112.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Reading Input excel file&quot;]" />
+            <ui:ExcelReadRange AddHeaders="True" DataTable="[Datatable]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="416,92" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="[in_SheetName]">
+              <ui:ExcelReadRange.Range>
+                <InArgument x:TypeArguments="x:String">
+                  <Literal x:TypeArguments="x:String" Value="" />
+                </InArgument>
+              </ui:ExcelReadRange.Range>
+            </ui:ExcelReadRange>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,112.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Reading Input excel file is successfull&quot;]" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,104" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Data stored in Data table&quot;]" />
+          </Sequence>
+        </ActivityAction>
+      </ui:ExcelApplicationScope.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ExcelApplicationScope>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="483.2,112.8" sap2010:WorkflowViewState.IdRef="LogMessage_26" Level="Info" Message="[&quot;Fetching People Name From URL Started&quot;]" />
+    <ui:ExcelApplicationScope Password="{x:Null}" SensitivityLabel="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="483.2,397.6" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_5" InstanceCachePeriod="3000" SensitivityOperation="None" WorkbookPath="[in_URLlink]">
+      <ui:ExcelApplicationScope.Body>
+        <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="449.6,256" sap2010:WorkflowViewState.IdRef="Sequence_12">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:ExcelReadRange AddHeaders="True" DataTable="[dt_table]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="416,92" sap2010:WorkflowViewState.IdRef="ExcelReadRange_2" SheetName="[in_URLSheetName]">
+              <ui:ExcelReadRange.Range>
+                <InArgument x:TypeArguments="x:String">
+                  <Literal x:TypeArguments="x:String" Value="" />
+                </InArgument>
+              </ui:ExcelReadRange.Range>
+            </ui:ExcelReadRange>
+            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_table]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="416,104" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+              <ui:ForEachRow.Body>
+                <ActivityAction x:TypeArguments="sd:DataRow">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="601.6,2358.4" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:String" Name="Link" />
+                      <Variable x:TypeArguments="sd:DataTable" Name="combinedDataTable" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Assign sap:VirtualizedContainerService.HintSize="568,113.6" sap2010:WorkflowViewState.IdRef="Assign_8">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[Link]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[Currentrow("URL").ToString()]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign sap:VirtualizedContainerService.HintSize="568,113.6" sap2010:WorkflowViewState.IdRef="Assign_12">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[SheetName]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[Link.Split("/"c)(Link.Split("/"c).Length - 2).ToString()]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="568,1077.6" sap2010:WorkflowViewState.IdRef="OpenBrowser_3" Url="[Link]">
+                      <ui:OpenBrowser.Body>
+                        <ActivityAction x:TypeArguments="x:Object">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                          </ActivityAction.Argument>
+                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="534.4,920" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: People - Jira" sap:VirtualizedContainerService.HintSize="500.8,860" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="ce188b81-27a6-47aa-8237-951a2569f90f" Version="V2">
+                              <uix:NApplicationCard.Body>
+                                <ActivityAction x:TypeArguments="x:Object">
+                                  <ActivityAction.Argument>
+                                    <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                                  </ActivityAction.Argument>
+                                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="467.2,620" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="433.6,122.4" sap2010:WorkflowViewState.IdRef="Delay_2" />
+                                    <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[ExtractDataTable]" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Table' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Name' ReferenceIdx='0' Name='Name'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Name Src' ReferenceIdx='1' Name='Name Src' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Email' ReferenceIdx='2' Name='Email' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Role' ReferenceIdx='3' Name='Role' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Action' ReferenceIdx='4' Name='Action' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Name' attr='fulltext' name2='Name Src' attr2='src' /&gt;&lt;column name='Email' attr='fulltext' /&gt;&lt;column name='Role' attr='fulltext' /&gt;&lt;column name='Action' attr='fulltext' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="433.6,189.6" sap2010:WorkflowViewState.IdRef="NExtractData_2" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="ce188b81-27a6-47aa-8237-951a2569f90f" Version="V4">
+                                      <uix:NExtractData.Target>
+                                        <uix:TargetAnchorable BrowserURL="https://accelirate.atlassian.net/plugins/servlet/project-config/ROCWEG/people" DesignTimeRectangle="536, 555, 1133, 697" DesignTimeScaleFactor="1.2000000476837158" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;" Guid="96b40ee2-7588-49fd-9151-ccd9647d5c4d" InformativeScreenshot="34809d5613216ca9fab5b914bcae3f90.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='People - Jira' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                                      </uix:NExtractData.Target>
+                                    </uix:NExtractData>
+                                    <ui:CloseApplication DisplayName="Close Application 'document People'" sap:VirtualizedContainerService.HintSize="433.6,139.2" sap2010:WorkflowViewState.IdRef="CloseApplication_2">
+                                      <ui:CloseApplication.Target>
+                                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="59e19a3a-f360-4728-a168-d37ce6aca592" InformativeScreenshot="e4770111612e43640d4f3e65da2e1112" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='People - Jira Service Management*' /&gt;&lt;ctrl name='People - Jira Service Management*' role='pane' /&gt;&lt;ctrl name='Close' role='push button' /&gt;" TimeoutMS="35000" WaitForReady="COMPLETE" />
+                                      </ui:CloseApplication.Target>
+                                    </ui:CloseApplication>
+                                    <Assign sap:VirtualizedContainerService.HintSize="433.6,107.2" sap2010:WorkflowViewState.IdRef="Assign_23">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="sd:DataTable">[dt_FilteredData]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="sd:DataTable">[ExtractDataTable.AsEnumerable().Where(Function(row) Not (row(0).ToString().Trim().Contains("Harshal Pawar") OrElse row(0).ToString().Trim().Contains("Rohit Mane") OrElse row(0).ToString().Trim().Contains("hp.harshalpawar01@gmail.com"))).CopyToDataTable()]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                  </Sequence>
+                                </ActivityAction>
+                              </uix:NApplicationCard.Body>
+                              <uix:NApplicationCard.TargetApp>
+                                <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Chrome" IconBase64="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" sap2010:WorkflowViewState.IdRef="TargetApp_2" InformativeScreenshot="38538885d0e9afab0fc6898f263d8095.jpg" Selector="&lt;html app='chrome.exe' title='People - Jira' /&gt;" Title="People - Jira" Url="[Link]" />
+                              </uix:NApplicationCard.TargetApp>
+                            </uix:NApplicationCard>
+                          </Sequence>
+                        </ActivityAction>
+                      </ui:OpenBrowser.Body>
+                    </ui:OpenBrowser>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="568,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_27" Level="Info" Message="[&quot;Fetching People Name From URL Completed&quot;]" />
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="568,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_28" Level="Trace" Message="[&quot;People Name Storing in the Datatable&quot;]" />
+                    <ui:ExcelApplicationScope Password="{x:Null}" SensitivityLabel="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="568,312.8" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_3" InstanceCachePeriod="3000" SensitivityOperation="None" WorkbookPath="[System.Environment.CurrentDirectory+in_OutputPath]">
+                      <ui:ExcelApplicationScope.Body>
+                        <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                          </ActivityAction.Argument>
+                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,171.2" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                            <Sequence.Variables>
+                              <Variable x:TypeArguments="x:String" Name="Filtered_Data" />
+                            </Sequence.Variables>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:ExcelWriteRange AddHeaders="False" DataTable="[dt_FilteredData]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="382.4,111.2" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_3" SheetName="[SheetName]" StartingCell="A1" />
+                          </Sequence>
+                        </ActivityAction>
+                      </ui:ExcelApplicationScope.Body>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:ExcelApplicationScope>
+                    <ui:KillProcess AppliesTo="{x:Null}" ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="568,166.4" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="EXCEL.EXE" />
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="568,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_29" Level="Info" Message="[&quot;Stored All People Names In Datatable Successfully&quot;]" />
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEachRow.Body>
+            </ui:ForEachRow>
+          </Sequence>
+        </ActivityAction>
+      </ui:ExcelApplicationScope.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ExcelApplicationScope>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="483.2,112.8" sap2010:WorkflowViewState.IdRef="LogMessage_30" Level="Info" Message="[&quot;Searching Missing Fields From Datatable Started &quot;]" />
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[Datatable]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="334.4,80.8" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
+      <ui:ForEachRow.Body>
+        <ActivityAction x:TypeArguments="sd:DataRow">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="571.2,3156.8" sap2010:WorkflowViewState.IdRef="Sequence_20">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="SheetName" />
+              <Variable x:TypeArguments="sd:DataTable" Name="dt_EmailNames" />
+              <Variable x:TypeArguments="x:String" Name="AssigneeNames" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign sap:VirtualizedContainerService.HintSize="537.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_22">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[SheetName]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[CurrentRow("Issue key").ToString.Split("-"c)(0)]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:ReadRange Range="{x:Null}" AddHeaders="False" DataTable="[dt_EmailNames]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="537.6,120" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="[SheetName]" WorkbookPath="[in_OutputPath.Remove(0,1)]" />
+            <Assign sap:VirtualizedContainerService.HintSize="537.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_15">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[str_EmailNames]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[String.Join(";", dt_EmailNames.AsEnumerable().Select(Function(row) row(0).ToString()))]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <If Condition="[CurrentRow(&quot;Issue Type&quot;).ToString().Contains(&quot;Incident Request&quot;)Or CurrentRow(&quot;Issue Type&quot;).ToString().Contains(&quot;Service Request&quot;)]" sap:VirtualizedContainerService.HintSize="537.6,2749.6" sap2010:WorkflowViewState.IdRef="If_6">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If.Then>
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="536,1281.6" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="502.4,112.8" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[CurrentRow.Item(&quot;Issue key&quot;).ToString+&quot; is Incident&quot;]" />
+                  <If Condition="[String.IsNullOrEmpty(Currentrow(&quot;Custom field (Point Category Assigned (Incident or Service Request))&quot;).ToString.Trim) Or&#xD;&#xA;String.IsNullOrEmpty(Currentrow(&quot;Custom field (Resolution Category (Incident))&quot;).ToString.Trim)Or&#xD;&#xA;String.IsNullOrEmpty(Currentrow(&quot;Custom field (Total Agile Points Per Ticket)&quot;).ToString.Trim)]" sap:VirtualizedContainerService.HintSize="502.4,1108.8" sap2010:WorkflowViewState.IdRef="If_7">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="500.8,815.2" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Sequence sap:VirtualizedContainerService.HintSize="467.2,755.2" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,112.8" sap2010:WorkflowViewState.IdRef="LogMessage_18" Level="Trace" Message="[&quot;Drafting alert email for&quot; +CurrentRow.Item(&quot;Issue key&quot;).ToString]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="433.6,56.8" sap2010:WorkflowViewState.IdRef="CommentOut_6">
+                            <ui:CommentOut.Body>
+                              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="467.2,164.8" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Assign sap:VirtualizedContainerService.HintSize="433.6,104.8" sap2010:WorkflowViewState.IdRef="Assign_16">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[in_ToEmail]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">[CurrentRow.Item("Assignee").ToString()]</InArgument>
+                                  </Assign.Value>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </Assign>
+                              </Sequence>
+                            </ui:CommentOut.Body>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:CommentOut>
+                          <Assign sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_17">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[in_SubjectEmail]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">["ACTION NEEDED - Jira Audit Alert -"+CurrentRow.Item("Issue key").ToString]</InArgument>
+                            </Assign.Value>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="433.6,115.2" sap2010:WorkflowViewState.IdRef="Assign_18">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[in_bodyEmail]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String" xml:space="preserve">["&lt;p&gt;Hello assignee1,&lt;/p&gt;
+
+&lt;p&gt;Below are ticket details:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Issue key:&lt;/strong&gt; issue1&lt;/li&gt;
+   &lt;li&gt;&lt;strong&gt;Total Agile Points Per Ticket):&lt;/strong&gt; point3&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Resolution Category (Incident):&lt;/strong&gt; point1&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Point Category Assigned (Incident or Service Request):&lt;/strong&gt; point2&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Please Complete the blank details.&lt;/p&gt;
+"]</InArgument>
+                            </Assign.Value>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Assign>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,112.8" sap2010:WorkflowViewState.IdRef="LogMessage_19" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Sending alert Email for &quot;+CurrentRow.Item(&quot;Issue key&quot;).ToString]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="433.6,56.8" sap2010:WorkflowViewState.IdRef="CommentOut_5">
+                            <ui:CommentOut.Body>
+                              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,229.6" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Body="[in_bodyEmail.Replace(&quot;assignee1&quot;,CurrentRow(&quot;assignee&quot;).ToString).Replace(&quot;issue1&quot;,CurrentRow(&quot;Issue Key&quot;).ToString).Replace(&quot;point1&quot;,CurrentRow(&quot;Custom field (Resolution Category (Incident))&quot;).ToString).Replace(&quot;point2&quot;,CurrentRow(&quot;Custom field (Point Category Assigned (Incident or Service Request))&quot;).ToString).Replace(&quot;point3&quot;,CurrentRow(&quot;Custom field (Total Agile Points Per Ticket)&quot;).ToString)]" Cc="[Config(&quot;CC_Email&quot;).ToString]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="382.4,169.6" sap2010:WorkflowViewState.IdRef="SendOutlookMail_3" Importance="Normal" IsBodyHtml="True" IsDraft="False" Sensitivity="Normal" Subject="[in_SubjectEmail]" To="[str_EmailNames]">
+                                  <ui:SendOutlookMail.Files>
+                                    <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
+                                  </ui:SendOutlookMail.Files>
+                                </ui:SendOutlookMail>
+                              </Sequence>
+                            </ui:CommentOut.Body>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:CommentOut>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,104" sap2010:WorkflowViewState.IdRef="LogMessage_20" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Email Sent Successfully &quot;+CurrentRow.Item(&quot;Issue key&quot;).ToString]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                        </Sequence>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="500.8,164" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="467.2,104" sap2010:WorkflowViewState.IdRef="LogMessage_17" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;No empty field&quot;]" />
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="536,1338.4" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="502.4,112.8" sap2010:WorkflowViewState.IdRef="LogMessage_21" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[CurrentRow.Item(&quot;Issue key&quot;).ToString+&quot; is Change Request&quot;]" />
+                  <If Condition="[String.IsNullOrEmpty(Currentrow(&quot;Custom field (Point Category Assigned (Change/Enhancement))&quot;).ToString.Trim) Or&#xD;&#xA;String.IsNullOrEmpty(Currentrow(&quot;Custom field (Resolution Category (Change/Enhancement))&quot;).ToString.Trim)Or&#xD;&#xA;String.IsNullOrEmpty(Currentrow(&quot;Custom field (Total Agile Points Per Ticket)&quot;).ToString.Trim)]" sap:VirtualizedContainerService.HintSize="502.4,1165.6" sap2010:WorkflowViewState.IdRef="If_8">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="500.8,872" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Sequence sap:VirtualizedContainerService.HintSize="467.2,812" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,112.8" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Drafting alert email&quot;+CurrentRow.Item(&quot;Issue key&quot;).ToString]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <Assign sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_19">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[in_ToEmail]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[CurrentRow.Item("Assignee").ToString()]</InArgument>
+                            </Assign.Value>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_20">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[in_SubjectEmail]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">["ACTION NEEDED - Jira Audit Alert -"+CurrentRow.Item("Issue key").ToString]</InArgument>
+                            </Assign.Value>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="433.6,115.2" sap2010:WorkflowViewState.IdRef="Assign_21">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[in_bodyEmail2]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String" xml:space="preserve">["&lt;p&gt;Hello assignee1,&lt;/p&gt;
+
+&lt;p&gt;Below are ticket details:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Issue key:&lt;/strong&gt; issue1&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Total Agile Points Per Ticket):&lt;/strong&gt; point3&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Resolution Category (Change/Enhancement):&lt;/strong&gt; point1&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Point Category Assigned (Change/Enhancement):&lt;/strong&gt; point2&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Please Complete the blank details.&lt;/p&gt;
+"]</InArgument>
+                            </Assign.Value>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Assign>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,112.8" sap2010:WorkflowViewState.IdRef="LogMessage_23" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Sending alert Email for &quot;+CurrentRow.Item(&quot;Issue key&quot;).ToString]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="433.6,56.8" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+                            <ui:CommentOut.Body>
+                              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,233.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Body="[in_bodyEmail2.Replace(&quot;assignee1&quot;,CurrentRow(&quot;assignee&quot;).ToString).Replace(&quot;issue1&quot;,CurrentRow(&quot;Issue Key&quot;).ToString).Replace(&quot;point1&quot;,CurrentRow(&quot;Custom field (Resolution Category (Change/Enhancement))&quot;).ToString).Replace(&quot;point2&quot;,CurrentRow(&quot;Custom field (Point Category Assigned (Change/Enhancement))&quot;).ToString).Replace(&quot;point3&quot;,CurrentRow(&quot;Custom field (Total Agile Points Per Ticket)&quot;).ToString)]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="382,173.33333333333334" sap2010:WorkflowViewState.IdRef="SendOutlookMail_4" Importance="Normal" IsBodyHtml="True" IsDraft="False" Sensitivity="Normal" Subject="[in_SubjectEmail]" To="[str_EmailNames]">
+                                  <ui:SendOutlookMail.Files>
+                                    <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
+                                  </ui:SendOutlookMail.Files>
+                                </ui:SendOutlookMail>
+                              </Sequence>
+                            </ui:CommentOut.Body>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:CommentOut>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,104" sap2010:WorkflowViewState.IdRef="LogMessage_24" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Email Sent Successfully for &quot;+CurrentRow.Item(&quot;Issue key&quot;).ToString]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                        </Sequence>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="500.8,164" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="467.2,104" sap2010:WorkflowViewState.IdRef="LogMessage_25" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;No empty field&quot;]" />
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </If.Else>
+            </If>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEachRow.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ForEachRow>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="483.2,104" sap2010:WorkflowViewState.IdRef="LogMessage_31" Level="Info" Message="[&quot;Searching Missing Fields From Datatable Completed&quot;]" />
+  </Sequence>
+</Activity>
